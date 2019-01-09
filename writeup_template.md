@@ -25,7 +25,7 @@ For this implementation, the German Traffic Sign dataset was used. This dataset 
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [My_P2](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [My_P2](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
 
 ---
 ### Data Set Summary & Exploration
