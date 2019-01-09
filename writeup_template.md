@@ -25,7 +25,7 @@ For this implementation, the German Traffic Sign dataset was used. This dataset 
 [image8]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
-Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [My_P2](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [My_P2](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
 
 ---
 ### Data Set Summary & Exploration
@@ -51,7 +51,11 @@ After this point, I also detail the data set through a bar graph that shows how 
 
 ![histogram of training data](./info_output/Hist_train_orig.jpg)
 
-The average number of training examples per class is 809, the minimum is 180 and the maximum 2010, hence some labels are one order of magnitude more abundant than others. This imbalance between classes could be a problem for the training, therefore a possible solution is presented at a later stage.
+![histogram of validation data](./info_output/Hist_validate.jpg)
+
+![histogram of test data](./info_output/Hist_test.jpg)
+
+Analyzing the histogram of the training data, it can be observed that the average number of training examples per class is 809, the minimum is 180 and the maximum 2010, hence some labels are one order of magnitude more abundant than others. This imbalance between classes could be a problem for the training, therefore a possible solution is presented at a later stage.
 
 ### Design and Test a Model Architecture
 
