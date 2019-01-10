@@ -119,9 +119,46 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+My final classifier was trained using:
+-	AdamOptimizer to optimization of the hyperparameters
+-	Batch size of 64
+- Epoch: 20
+-	Dropout rate of 50% (training) for regularization
+-	Learning rate with [exponential decay]( https://www.tensorflow.org/api_docs/python/tf/train/exponential_decay):
+o	Initial learning rate of 0.005
+o	Decay rate of 0.99
+o	Decay step of “batch size”
+For the initialization of the model hyperparameters I used a normal distribution with mean of 0 and standard deviation of 0.1.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+
+To train the model, I started from a a well known architecture (LeNet) because of simplicity of implementation and because it performs well on recognizing handwritings images, as observed in the course of Udacity. Initially , I performed a first training with the architecture without changes and the following parameters:
+
+-Epochs: 10
+
+-Batch size: 128
+
+-Learning rate (static): 0.001
+
+In this first training the normalization of the images, in grayscale, was done with the equation: (img / 255). My initial results showed that the model tended to overfit to the original training set, the accuracy of the training set was high but the accuracy of the valid set was less than the desired percentage. For this reason, I modified the normalization to (img-128/128), and adjust the training parameters:
+
+- Epochs: 20
+
+- Batch size: 64
+
+- Learning rate (static): 0.001
+
+With these changes, the accuracy of the validation set increased, but still not reached the desired percentage, therefore, I performed a third training, adding a dropout method. Initially, I use a keep probability of 75 % for the dropout, but after some tests I used a final value of 50%.
+
+By adding the dropout, the efficiency of the classifier exceeded the desired percentage, however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [Adam] (), this technique already has a decay rate, however I decided to add this additional rate decay, and the results were satisfactory.
+
+As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (). On the notebbok you can find the CNN code (in) and the code for training, validation and testing (in [])
+
+Below is a table with the summary of the steps taken for training the neural network
+
+|a						|												|
+a
+|						|												|
 
 My final model results were:
 * training set accuracy of ?
