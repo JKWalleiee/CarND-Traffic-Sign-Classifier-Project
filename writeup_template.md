@@ -150,33 +150,24 @@ In this first training the normalization of the images, in grayscale, was done w
 
 With these changes, the accuracy of the validation set increased, but still not reached the desired percentage, therefore, I performed a third training, adding a dropout method. Initially, I use a keep probability of 75 % for the dropout, but after some tests I used a final value of 50%.
 
-By adding the dropout, the efficiency of the classifier exceeded the desired percentage, however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [Adam] (), this technique already has a decay rate, however I decided to add this additional rate decay, and the results were satisfactory.
+By adding the dropout, the efficiency of the classifier exceeded the desired percentage, however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [Adam] (), this technique already has a decay rate, however I decided to add this additional rate decay, with an initial learning rate of 0.005, and the results were satisfactory.
 
 As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (). On the notebbok you can find the CNN code (in) and the code for training, validation and testing (in [])
 
 Below is a table with the summary of the steps taken for training the neural network
 
-|a						|												|
-a
-|						|												|
+| Epochs: 10 Batch size: 128 Learning rate (static): 0.001                                                       |   90.9 % |
+|----------------------------------------------------------------------------------------------------------------|----------|
+| Epochs: 20 Batch size: 64 Learning rate(static): 0.001                                                         |   92.7 % |
+| Epochs: 20 Batch size: 64 Learning rate (static): 0.001                                                        |   94.5 % |
+| Epochs: 20 Batch size: 64 Learning rate (static): 0.001 Dropout (50 %)                                         |   95.6 % |
+| Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %)                                     |    1     |
+| Augmented and balanced training set Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %) |   1      |
 
 My final model results were:
 * training set accuracy of ?
 * validation set accuracy of ? 
 * test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
- 
 
 ### Test a Model on New Images
 
