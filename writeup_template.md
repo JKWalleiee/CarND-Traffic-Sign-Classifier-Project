@@ -11,7 +11,7 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-For this implementation, the German Traffic Sign dataset was used. This dataset was provided by udacity.
+For this implementation, the [German Traffic Sign dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) was used. This dataset was provided by udacity.
 
 [//]: # (Image References)
 
@@ -73,7 +73,7 @@ Below is an example of each of these three transformations:
 
 ![Augmented Image - Rotation](./info_output/Aug_rotate.jpg)
 
-The augmented training set has 69598 features. Here is bar graph that shows how the the augmented training set is distributed through the different labels.
+The augmented training set has 69598 images. Here is bar graph that shows how the the augmented training set is distributed through the different labels.
 
 ![histogram of augmented training data](./info_output/Hist_train_aug.jpg) 
 
