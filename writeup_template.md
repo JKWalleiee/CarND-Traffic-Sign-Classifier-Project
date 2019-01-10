@@ -221,38 +221,52 @@ The accuracy of the classifier per class is presented below:
 | 40:Roundabout mandatory | 96.85% | 73.33% | 81.1% |
 | 41:End of no passing | 98.21% | 40.00% | 83.3% |
 | 42:End of no passing by vehicles over 3.5 metric tons | 97.90% | 90.00% | 100.0%</pre> |
-|  |  |  |  |
+When analyzing the above percentages, an interesting point to note is that the classes with low percentage (validation and test) correspond to the classes that initially lack images and were processed by a rolling step, that is, classes where where a large part of the data in the final training data set are images augmented by code.
+
+In this section of the report, I had planned to show the complete confusion matrix, however, a 43x43 matrix contains a lot of information, and its analysis goes beyond the scope of this project. Instead, I decided to use the next stage of the report, "Test a Model on New Images", to analyze some of the classes with low accuracy in the validation and tests sets.
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
+For this section of the report, I selected the five new images taking into account the following considerations:
+- An image with low accuracy of validation and test (End of no passing).
+- An image with very low accuracy test (Pedestrians).
+- Three random images with high accuracy of test and validation.
+
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![new images](./info_output/new_images.jpg)
 
-The first image might be difficult to classify because ...
+These images may be challenging to classify because:
+
+•	The first three images include much more background than the training images
+•	The pedestrian image has a circular shape, but the training pedestrian images have triangular shapes
+•	Contains image artifacts such as jpeg compression problems and copyright trademarks
+
+Since these images are not in the right shape accepted by the classifier they were resized using opencv methods.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-Here are the results of the prediction:
+My model only correctly classified the "End of no passing" and "Go straight or left" images, therefore, I obtained an accuracy (with the new images) of 40%. Below is the classes that my model predicted for the new images.
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| True label | Result label |
+|:--------------------:|:---------------------------:|
+| Go straight or left | Go straight or left |
+| No entry | Keep right |
+| Pedestrians | Ahead only |
+| Speed limit (80km/h) | Dangerous curve to the left |
+| End of no passing | End of no passing</pre> |
 
-
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+These results are lower than the accuracy on the test set, however, analyzing the classes where my model gave an incorrect prediction, it is observed that the initial assumption that the background could bring problems to my model is correct. A more detailed analysis is made in the next section.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The method for making the predictions can be found in the notebook (in []), and the cells where the predictions were made for the new images are in ([]). Below are the top 5 softmax probabilities for each image:
 
+![top probabilities](./info_output/top_probabilities.jpg)
+
+For the first (Go straight or left) image, the model is sure that is a "Go straight or left" image, with an accuracy of 99.90 %. 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
@@ -268,5 +282,6 @@ For the second image ...
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
 
 
