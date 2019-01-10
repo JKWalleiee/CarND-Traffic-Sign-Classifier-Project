@@ -221,6 +221,7 @@ The accuracy of the classifier per class is presented below:
 | 40:Roundabout mandatory | 96.85% | 73.33% | 81.1% |
 | 41:End of no passing | 98.21% | 40.00% | 83.3% |
 | 42:End of no passing by vehicles over 3.5 metric tons | 97.90% | 90.00% | 100.0%</pre> |
+
 When analyzing the above percentages, an interesting point to note is that the classes with low percentage (validation and test) correspond to the classes that initially lack images and were processed by a rolling step, that is, classes where where a large part of the data in the final training data set are images augmented by code.
 
 In this section of the report, I had planned to show the complete confusion matrix, however, a 43x43 matrix contains a lot of information, and its analysis goes beyond the scope of this project. Instead, I decided to use the next stage of the report, "Test a Model on New Images", to analyze some of the classes with low accuracy in the validation and tests sets.
