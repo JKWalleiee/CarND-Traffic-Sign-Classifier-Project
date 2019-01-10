@@ -156,18 +156,72 @@ As the last step of training, I augmented and balanced the training data and ret
 
 Below is a table with the summary of the steps taken for training the neural network
 
-| Epochs: 10 Batch size: 128 Learning rate (static): 0.001                                                       |   90.9 % |
+| Training  |   Validation Accuracy  |
 |----------------------------------------------------------------------------------------------------------------|----------|
-| Epochs: 20 Batch size: 64 Learning rate(static): 0.001                                                         |   92.7 % |
-| Epochs: 20 Batch size: 64 Learning rate (static): 0.001                                                        |   94.5 % |
-| Epochs: 20 Batch size: 64 Learning rate (static): 0.001 Dropout (50 %)                                         |   95.6 % |
-| Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %)                                     |    1     |
-| Augmented and balanced training set Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %) |   1      |
+| Epochs: 10 Batch size: 128 Learning rate (static): 0.001  |  90.9% |
+| Epochs: 20 Batch size: 64 Learning rate(static): 0.001 |   92.7% |
+| Epochs: 20 Batch size: 64 Learning rate (static): 0.001 |   94.5% |
+| Epochs: 20 Batch size: 64 Learning rate (static): 0.001 Dropout (50 %) |   95.6% |
+| Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %) | 96.31% |
+| Augmented and balanced training set Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %)| 96.64% |
+
+Accuracy Model On Training Images: 98.23
+Accuracy Model On Validation Images: 96.64
+Accuracy Model On Test Images: 94.54
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 98.23%
+* validation set accuracy of 96.64%
+* test set accuracy of 94.54%
+
+The accuracy of the classifier per class is presented below:
+
+|  | Training | Validation | Testing |
+|-------------------------------------------------------|----------|------------|--------------|
+| 0:Speed limit (20km/h) | 95.36% | 80.00% | 70.0% |
+| 1:Speed limit (30km/h) | 97.90% | 97.08% | 97.1% |
+| 2:Speed limit (50km/h) | 97.36% | 96.25% | 95.9% |
+| 3:Speed limit (60km/h) | 97.78% | 100.00% | 94.0% |
+| 4:Speed limit (70km/h) | 98.87% | 99.05% | 95.2% |
+| 5:Speed limit (80km/h) | 97.58% | 93.81% | 91.7% |
+| 6:End of speed limit (80km/h) | 98.95% | 100.00% | 92.7% |
+| 7:Speed limit (100km/h) | 96.74% | 95.33% | 88.2% |
+| 8:Speed limit (120km/h) | 99.13% | 99.33% | 98.4% |
+| 9:No passing | 98.79% | 98.00% | 99.4% |
+| 10:No passing for vehicles over 3.5 metric tons | 99.47% | 100.00% | 98.8% |
+| 11:Right-of-way at the next intersection | 98.03% | 98.67% | 93.3% |
+| 12:Priority road | 99.21% | 100.00% | 98.0% |
+| 13:Yield | 99.79% | 99.17% | 99.4% |
+| 14:Stop | 99.38% | 100.00% | 97.8% |
+| 15:No vehicles | 99.51% | 100.00% | 98.1% |
+| 16:Vehicles over 3.5 metric tons prohibited | 99.20% | 96.67% | 99.3% |
+| 17:No entry | 99.75% | 98.33% | 97.2% |
+| 18:General caution | 97.31% | 95.00% | 79.7% |
+| 19:Dangerous curve to the left | 98.70% | 100.00% | 100.0% |
+| 20:Dangerous curve to the right | 97.03% | 75.00% | 90.0% |
+| 21:Double curve | 95.80% | 81.67% | 87.8% |
+| 22:Bumpy road | 97.84% | 100.00% | 85.8% |
+| 23:Slippery road | 96.48% | 96.67% | 98.0% |
+| 24:Road narrows on the right | 97.71% | 90.00% | 96.7% |
+| 25:Road work | 98.70% | 97.33% | 92.9% |
+| 26:Traffic signals | 96.60% | 95.00% | 93.3% |
+| 27:Pedestrians | 98.70% | 100.00% | 51.7% |
+| 28:Children crossing | 96.85% | 100.00% | 99.3% |
+| 29:Bicycles crossing | 95.49% | 93.33% | 95.6% |
+| 30:Beware of ice/snow | 96.91% | 98.33% | 59.3% |
+| 31:Wild animals crossing | 98.70% | 100.00% | 98.1% |
+| 32:End of all speed and passing limits | 99.13% | 100.00% | 100.0% |
+| 33:Turn right ahead | 99.57% | 94.44% | 100.0% |
+| 34:Turn left ahead | 97.78% | 98.33% | 98.3% |
+| 35:Ahead only | 99.49% | 98.33% | 93.8% |
+| 36:Go straight or right | 97.96% | 100.00% | 100.0% |
+| 37:Go straight or left | 98.27% | 100.00% | 100.0% |
+| 38:Keep right | 99.35% | 100.00% | 94.6% |
+| 39:Keep left | 98.83% | 100.00% | 98.9% |
+| 40:Roundabout mandatory | 96.85% | 73.33% | 81.1% |
+| 41:End of no passing | 98.21% | 40.00% | 83.3% |
+| 42:End of no passing by vehicles over 3.5 metric tons | 97.90% | 90.00% | 100.0%</pre> |
+|  |  |  |  |
 
 ### Test a Model on New Images
 
