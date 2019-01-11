@@ -79,21 +79,21 @@ The augmented training set has 69598 images. Here is bar graph that shows how th
 
 ![histogram of augmented training data](./info_output/Hist_train_aug.jpg) 
 
-In addition to increasing the data, in this implementation the affine transformations were used to carry out a balancing of the training set, increasing the amount of images in the classes lacking data to an average value of all the classes. Below is a bar graph that shows how the the balanced training set is distributed through the different labels.
+In addition to increasing the data, in this implementation the affine transformations were used to carry out a balancing of the training set, increasing the amount of images in the classes lacking data to an average value of all the classes. This balancing of classes can be observed in [16].
+
+Below is a bar graph that shows how the the balanced training set is distributed through the different labels.
 
 ![histogram of augmented training data](./info_output/Hist_train_aug.jpg) 
 
 In the previous histogram, it can be observed that the minimum number of images per class is 1618 images, and the total number of images of the dataset is 93428.
 
-After balancing the training data, I decided to convert the images to grayscale because many signs have similar color patterns and hence, no real advantage would come from using the RGB scale in some cases. This observation is based on the results obtained in this report (94.54%) and on the paper provided in the workspace of the project [baseline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) (99,17%), where the best results were obtained by ignoring color information.
+After balancing the training data, I decided to convert the images to grayscale because many signs have similar color patterns and hence, no real advantage would come from using the RGB scale in some cases. This observation is based on the results obtained in this report (94.54%) and in the paper provided in the workspace of the project [baseline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) (99,17%), where the best results were obtained by ignoring color information.
 
 In addition, in the preprocessing a normalization is applied to the image data, so that the data have an average of zero (approximately). This is done through the equation: (pixel - 128) / 128. This process of normalization is done because a wide distribution in the data could make it more difficult the process of optimization of the parameters in the training of the classifier.
 
-The code of the preprocessing step could be found in the notebook [in 21-23]. Here is an example of a traffic sign image before and after the pre-processing step.
+The code of the preprocessing step could be found in the notebook [in 20-22]. Here is an example of a traffic sign image before and after the pre-processing step.
 
 ![preprocessed image](./info_output/preprocessed.jpg)
-
-
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -114,10 +114,6 @@ My final model consisted of the following layers:
 | Fully connected		| input 120, output 84      									|
 | RELU					|												|
 | Fully connected		| input 84, output 43      									|
-|						|												|
-|						|												|
- 
-
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
@@ -130,6 +126,7 @@ My final classifier was trained using:
 o	Initial learning rate of 0.005
 o	Decay rate of 0.99
 o	Decay step of “batch size”
+
 For the initialization of the model hyperparameters I used a normal distribution with mean of 0 and standard deviation of 0.1.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
@@ -142,7 +139,7 @@ To train the model, I started from a a well known architecture (LeNet) because o
 
 -Learning rate (static): 0.001
 
-In this first training the normalization of the images, in grayscale, was done with the equation: (img / 255). My initial results showed that the model tended to overfit to the original training set, the accuracy of the training set was high but the accuracy of the valid set was less than the desired percentage. For this reason, I modified the normalization to (img-128/128), and adjust the training parameters:
+In this first training the normalization of the images, in grayscale, was done with the equation: (img / 255). My initial results showed that the model tended to overfit to the original training set, the accuracy of the training set was high but the accuracy of the valid set was less than the desired percentage (89.2%). For this reason, I modified the normalization to (img-128/128) (the validation accuracy increased to 90.9%), and adjust the training parameters:
 
 - Epochs: 20
 
@@ -150,11 +147,11 @@ In this first training the normalization of the images, in grayscale, was done w
 
 - Learning rate (static): 0.001
 
-With these changes, the accuracy of the validation set increased, but still not reached the desired percentage, therefore, I performed a third training, adding a dropout method. Initially, I use a keep probability of 75 % for the dropout, but after some tests I used a final value of 50%.
+With these changes, the accuracy of the validation set increased (92.7%), but still not reached the desired percentage, therefore, I performed a third training, adding a dropout method. Initially, I use a keep probability of 75 % for the dropout, but after some tests I used a final value of 50%.
 
-By adding the dropout, the efficiency of the classifier exceeded the desired percentage, however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [Adam] (), this technique already has a decay rate, however I decided to add this additional rate decay, with an initial learning rate of 0.005, and the results were satisfactory.
+By adding the dropout, the efficiency of the classifier exceeded the desired percentage (95.6%), however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [AdamOptimizer] (https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer), this technique already has a decay rate, however I decided to add this additional rate decay, with an initial learning rate of 0.005, and the results were satisfactory (96.31%).
 
-As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (). On the notebbok you can find the CNN code (in) and the code for training, validation and testing (in [])
+As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (96.64%). On the notebbok you can find the CNN code (in [23]) and the code for training, validation and testing (in [25, 26 and 28])
 
 Below is a table with the summary of the steps taken for training the neural network
 
@@ -166,10 +163,6 @@ Below is a table with the summary of the steps taken for training the neural net
 | Epochs: 20 Batch size: 64 Learning rate (static): 0.001 Dropout (50 %) |   95.6% |
 | Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %) | 96.31% |
 | Augmented and balanced training set Epochs: 20 Batch size: 64 Learning rate (Decay rate): 0.005 Dropout (50 %)| 96.64% |
-
-Accuracy Model On Training Images: 98.23
-Accuracy Model On Validation Images: 96.64
-Accuracy Model On Test Images: 94.54
 
 My final model results were:
 * training set accuracy of 98.23%
@@ -224,7 +217,7 @@ The accuracy of the classifier per class is presented below:
 | 41:End of no passing | 98.21% | 40.00% | 83.3% |
 | 42:End of no passing by vehicles over 3.5 metric tons | 97.90% | 90.00% | 100.0%</pre> |
 
-When analyzing the above percentages, an interesting point to note is that the classes with low percentage (validation and test) correspond to the classes that initially lack images and were processed by a rolling step, that is, classes where where a large part of the data in the final training data set are images augmented by code.
+When analyzing the above percentages, an interesting point to note is that the classes with low percentage (validation and test) correspond to some of the classes that initially lack images and were processed by a balancing step, that is, classes where a large part of the data in the final training data set are images augmented by code.
 
 In this section of the report, I had planned to show the complete confusion matrix, however, a 43x43 matrix contains a lot of information, and its analysis goes beyond the scope of this project. Instead, I decided to use the next stage of the report, "Test a Model on New Images", to analyze some of the classes with low accuracy in the validation and tests sets.
 
@@ -265,7 +258,7 @@ These results are lower than the accuracy on the test set, however, analyzing th
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The method for making the predictions can be found in the notebook (in []), and the cells where the predictions were made for the new images are in ([]). Below are the top 5 softmax probabilities for each image:
+The method for making the top probabilities predictions can be found in the notebook (in [35]), and the cells where the predictions were made for the new images are in ([36]). Below are the top 5 softmax probabilities for each image:
 
 ![top probabilities](./info_output/top_probabilities.jpg)
 
