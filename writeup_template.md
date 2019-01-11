@@ -149,9 +149,9 @@ In this first training the normalization of the images, in grayscale, was done w
 
 With these changes, the accuracy of the validation set increased (92.7%), but still not reached the desired percentage, therefore, I performed a third training, adding a dropout method. Initially, I use a keep probability of 75 % for the dropout, but after some tests I used a final value of 50%.
 
-By adding the dropout, the efficiency of the classifier exceeded the desired percentage (95.6%), however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [AdamOptimizer] (https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer), this technique already has a decay rate, however I decided to add this additional rate decay, with an initial learning rate of 0.005, and the results were satisfactory (96.31%).
+By adding the dropout, the efficiency of the classifier exceeded the desired percentage (95.6%), however, I decided to perform an additional test, adding an exponential decay to the learning rate. Taking into account the theory of [AdamOptimizer](https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer), this technique already has a decay rate, however I decided to add this additional rate decay, with an initial learning rate of 0.005, and the results were satisfactory (96.31%).
 
-As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (96.64%). On the notebbok you can find the CNN code (in [23]) and the code for training, validation and testing (in [25, 26 and 28])
+As the last step of training, I augmented and balanced the training data and retrain my network, reaching a validation percentage of (96.64%). On the notebook you can find the CNN code (in [23]) and the code for training, validation and testing (in [25, 26 and 28])
 
 Below is a table with the summary of the steps taken for training the neural network
 
@@ -258,7 +258,7 @@ These results are lower than the accuracy on the test set, however, analyzing th
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The method for making the top probabilities predictions can be found in the notebook (in [35]), and the cells where the predictions were made for the new images are in ([36]). Below are the top 5 softmax probabilities for each image:
+The method for making the top probabilities predictions can be found in the notebook (in [35]), and the cells where the predictions were made for the new images are (in [36]). Below are the top 5 softmax probabilities for each image:
 
 ![top probabilities](./info_output/top_probabilities.jpg)
 
