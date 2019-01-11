@@ -123,9 +123,12 @@ My final classifier was trained using:
 - Epoch: 20
 -	Dropout rate of 50% (training) for regularization
 -	Learning rate with [exponential decay]( https://www.tensorflow.org/api_docs/python/tf/train/exponential_decay):
-o	Initial learning rate of 0.005
-o	Decay rate of 0.99
-o	Decay step of “batch size”
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o	Initial learning rate of 0.005
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o	Decay rate of 0.99
+  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o	Decay step of “batch size”
 
 For the initialization of the model hyperparameters I used a normal distribution with mean of 0 and standard deviation of 0.1.
 
