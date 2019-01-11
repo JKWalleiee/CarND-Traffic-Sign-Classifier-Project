@@ -87,7 +87,7 @@ Below is a bar graph that shows how the the balanced training set is distributed
 
 In the previous histogram, it can be observed that the minimum number of images per class is 1618 images, and the total number of images of the dataset is 93428.
 
-After balancing the training data, I decided to convert the images to grayscale because many signs have similar color patterns and hence, no real advantage would come from using the RGB scale in some cases. This observation is based on the results obtained in this report (94.54%) and in the paper provided in the workspace of the project [baseline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) (99,17%), where the best results were obtained by ignoring color information.
+After balancing the training data, I decided to convert the images to grayscale because many signs have similar color patterns and hence, no real advantage would come from using the RGB scale in some cases. This observation is based on the results obtained in this report (94.54%) and in the paper provided in the workspace of the project [baseline paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) (99.17%), where the best results were obtained by ignoring color information.
 
 In addition, in the preprocessing a normalization is applied to the image data, so that the data have an average of zero (approximately). This is done through the equation: (pixel - 128) / 128. This process of normalization is done because a wide distribution in the data could make it more difficult the process of optimization of the parameters in the training of the classifier.
 
@@ -269,7 +269,7 @@ For the first (Go straight or left) image, the model is sure that is a "Go strai
 
 The fifth image (End of no passing) has too a very high accuracy percentage for the correct class (100 %). In this case, this percentage is higher than the accuracy percentage obtained in the test set for this class, however, the absence of background in the image can explain again the high accuracy percentage obtained.
 
-On the other hand, for the 3 new images with background, my model can not classify them correctly. For the second image (No entry), my model incorrectly states that it corresponds to a Keep right image , with a clasification percentage of 71,012%. This accuracy percentage of 0% is not consistent with the accuracy of 97.2% for this class in the test set, therefore, i it is observed that the presence of a lot of background in the image is the possible cause for this high error.
+On the other hand, for the 3 new images with background, my model can not classify them correctly. For the second image (No entry), my model incorrectly states that it corresponds to a Keep right image , with a clasification percentage of 71.012%. This accuracy percentage of 0% is not consistent with the accuracy of 97.2% for this class in the test set, therefore, i it is observed that the presence of a lot of background in the image is the possible cause for this high error.
 
 For the third image (pedestrians), the analysis is the same as for the second image. In this case my model  incorrectly states that it corresponds to an Ahead only  image, with a clasification percentage of 56.826%. This accuracy of 0% can be analyzed from the presence of a lot of background in the image, the triangular shape of the signal in comparison with the circular shape of the training images, and the low accuracy of this class for the test set ( 51.7%).
 
