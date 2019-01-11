@@ -15,17 +15,19 @@ For this implementation, the [German Traffic Sign dataset](http://benchmark.ini.
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+## Submission Files
+- Ipython notebook with code: [./Traffic_Sign_Classifier.ipynb](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+
+- HTML output of the code: [./Traffic_Sign_Classifier.html](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/blob/master//Traffic_Sign_Classifier.html)
+
+- A writeup report. This document.
+
+- /info_output: Images for this report.
+- /my_images: Five new images downloaded from the web.
+- /my_model: my CNN model.
 
 ## Rubric Points
-Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [My_P2](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
+Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation. The code of my implementation can be found in the Jupyter notebook [Traffic_Sign_Classifier](https://github.com/JKWalleiee/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). From now on, whenever the notebook is referenced, the following notation will be used: in [No].
 
 ---
 ### Data Set Summary & Exploration
@@ -267,22 +269,17 @@ The method for making the predictions can be found in the notebook (in []), and 
 
 ![top probabilities](./info_output/top_probabilities.jpg)
 
-For the first (Go straight or left) image, the model is sure that is a "Go straight or left" image, with an accuracy of 99.90 %. 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first (Go straight or left) image, the model is sure that is a "Go straight or left" image, with an accuracy of 99.90 %. This accuracy percentage is consistent with the accuracy of this class in the valid and test sets (100 %). In addition, it can be observed that the new image, like the training images for this class, does not have much background (it has no background), which can explain the high accuracy percentage.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+The fifth image (End of no passing) has too a very high accuracy percentage for the correct class (100 %). In this case, this percentage is higher than the accuracy percentage obtained in the test set for this class, however, the absence of background in the image can explain again the high accuracy percentage obtained.
 
+On the other hand, for the 3 new images with background, my model can not classify them correctly. For the second image (No entry), my model incorrectly states that it corresponds to a Keep right image , with a clasification percentage of 71,012%. This accuracy percentage of 0% is not consistent with the accuracy of 97.2% for this class in the test set, therefore, i it is observed that the presence of a lot of background in the image is the possible cause for this high error.
 
-For the second image ... 
+For the third image (pedestrians), the analysis is the same as for the second image. In this case my model  incorrectly states that it corresponds to an Ahead only  image, with a clasification percentage of 56.826%. This accuracy of 0% can be analyzed from the presence of a lot of background in the image, the triangular shape of the signal in comparison with the circular shape of the training images, and the low accuracy of this class for the test set ( 51.7%).
 
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+For the fourth image (Speed limit (80km/h)), the analysis is the same as for the second image. In this case my model  incorrectly states that it corresponds to an "Dangerous curve to the left" image, with a clasification percentage of 32.073%.  It is worth highlighting the classification percentage of this image for class 6 (End of speed limit (80km / h)) of 5.87%, since, curiously, this class is very similar to the correct class.
+
+Analyzing the results obtained for these five images, it can be concluded that the trained model is not able to correctly classify images that have a lot of background, which is why it is necessary to take photos very close to the traffic signal, or to segment the signal in the image before training the system. In addition, it is observed that, depending on the desired behavior in the application, it is possible to use the classification percentages to reject a prediction if it does not exceed a defined classification threshold (example 60%).
 
 
 
